@@ -1,0 +1,241 @@
+{
+  "metadata": {
+    "title": "BahnCard: save with every journey",
+    "description": "The BahnCard is a discount card with subscription that lets you save 25 or 50 percent on every journey. Our trial BahnCards let you try it out for just three months."
+  },
+  "checkout": {
+    "progressbar": {
+      "step1": "Select BahnCard",
+      "step2": "Personal Details",
+      "step3": "Payment",
+      "step4": "Confirmation"
+    },
+    "configuration": {
+      "firstClass": "1st Class",
+      "secondClass": "2nd Class",
+      "travelClass": "Travel Class",
+      "startDate": "Start Date",
+      "price": "Price",
+      "back": "Back",
+      "continue": "Continue"
+    },
+    "payment": {
+      "firstClass": "1st Class",
+      "secondClass": "2nd Class",
+      "travelClass": "Travel Class",
+      "startDate": "Start Date",
+      "price": "Price",
+      "back": "Back",
+      "continue": "Continue"
+    },
+    "customerData": {
+      "title": "Title",
+      "selectTitle": "Select title",
+      "mr": "Mr",
+      "mrs": "Mrs",
+      "ms": "Ms",
+      "dr": "Dr",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "address": "Address",
+      "addressPlaceholder": "Start typing your address...",
+      "dateOfBirth": "Date of Birth",
+      "dateOfBirthPlaceholder": "Select your date of birth",
+      "price": "Price"
+    },
+    "payment": {
+      "paymentMethod": "Payment Method",
+      "choosePayment": "Choose how you'd like to pay",
+      "paypal": "PayPal",
+      "sepa": "SEPA Direct Debit",
+      "savedCard": "VISA **** 2949",
+      "addNewCard": "Add New Credit Card",
+      "bonvoyo": "Bonvoyo",
+      "price": "Price"
+    },
+    "confirmation": {
+      "successTitle": "Purchase Successful!",
+      "successMessage": "Your BahnCard has been ordered successfully",
+      "orderSummary": "Order Summary",
+      "orderNumber": "Order Number",
+      "product": "Product",
+      "class": "Class",
+      "firstClass": "1st Class",
+      "secondClass": "2nd Class",
+      "startDate": "Start Date",
+      "customerDetails": "Customer Details",
+      "name": "Name",
+      "username": "Username",
+      "address": "Address",
+      "price": "Price",
+      "downloadReceipt": "Download Receipt"
+    }
+  },
+  "navigation": {
+    "tickets": "Tickets",
+    "bahncard": "BahnCard",
+    "travelInfo": "Travel Info",
+    "helpContact": "Help & Contact",
+    "login": "Login",
+    "loginTitle": "Login",
+    "email": "Username",
+    "password": "Password",
+    "logout": "Logout",
+    "loggedInAs": "Logged in as",
+    "back": "Back",
+    "notLoggedIn": "Not logged in",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "completePurchase": "Complete Purchase",
+    "requiredField": "This field is required",
+    "returnHome": "Return to Home"
+  },
+  "hero": {
+    "imageAlt": "Train on tracks in Germany",
+    "headline": "Save on <highlight>every</highlight> journey with BahnCard",
+    "subline": "Get up to 50% off train tickets across Germany and Europe with our range of BahnCard options.",
+    "compareButton": "Compare BahnCards",
+    "calculateButton": "Calculate Your Savings",
+    "info": "BahnCard 25 & 50 offer different levels of savings to match your travel frequency. Find the perfect card for your needs."
+  },
+  "intro": {
+    "title": "Your Smart Choice for Rail Travel",
+    "subtitle": "Whether you travel occasionally or frequently, there's a BahnCard that's right for you. Enjoy significant discounts on Deutsche Bahn services all year round.",
+    "features": {
+      "cardOptions": {
+        "title": "Three Card Options",
+        "description": "Choose between BahnCard 25, 50, or 100 based on how often you travel and your preferred class."
+      },
+      "savings": {
+        "title": "Instant Savings",
+        "description": "Get 25%, 50%, or even 100% off the regular fare price on every journey you take."
+      },
+      "routes": {
+        "title": "Valid for All Routes",
+        "description": "Your BahnCard is valid on all Deutsche Bahn routes and many partner railways."
+      },
+      "validity": {
+        "title": "One Year Validity",
+        "description": "Enjoy benefits for a full year with automatic renewal option for continuous savings."
+      }
+    }
+  },
+  "footer": {
+    "aboutTitle": "About",
+    "about": "About",
+    "career": "Career",
+    "press": "Press",
+    "sustainability": "Sustainability",
+    "customerServiceTitle": "Customer Service",
+    "helpContact": "Help & Contact",
+    "passengerRights": "Passenger Rights",
+    "accessibility": "Accessibility",
+    "lostFound": "Lost & Found",
+    "travelInfoTitle": "Travel Information",
+    "timetableBooking": "Timetable & Booking",
+    "dbNavigatorApp": "DB Navigator App",
+    "delayInfo": "Delay Information",
+    "railFly": "Rail & Fly",
+    "legalTitle": "Legal",
+    "terms": "Terms and Conditions",
+    "privacy": "Privacy Policy",
+    "cookieSettings": "Cookie Settings",
+    "imprint": "Imprint",
+    "copyright": "Deutsche Bahn AG. All rights reserved.",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn"
+  },
+  "comparison": {
+    "headline": "Compare BahnCard Options",
+    "subline": "Find the perfect BahnCard for your travel habits. Compare benefits and choose the option that saves you the most.",
+    "secondClass": "2nd Class",
+    "firstClass": "1st Class",
+    "card": {
+      "bc25Title": "BahnCard 25",
+      "bc25Subtitle": "25% discount on the flexible fare and 25% on saver offers in long-distance transport (City-Ticket is not included)",
+      "bc50Title": "BahnCard 50",
+      "bc50Subtitle": "50% discount on the flexible fare and 25% discount on saver offers in long-distance transport (City-Ticket is not included)",
+      "bc25trialTitle": "BahnCard 25 Trial",
+      "bc25trialSubtitle": "Immediate savings: the trial BahnCard is often worth it from the first journey onwards",
+      "bc50trialTitle": "BahnCard 50 Trial",
+      "bc50trialSubtitle": "Immediate savings: the trial BahnCard is often worth it from the first journey onwards",
+
+      "trial": "Trial BahnCard",
+      "digitalbahncard": "Digital BahnCard",
+      "validForYear": "Valid for 1 year",
+      "validFor3Months": "Valid for 3 months",
+      "offFlexpreis": "off Flexiprice tickets",
+      "offSparpreis": "off Saverprice tickets",
+      "unlimitedTravel": "Unlimited travel in Germany",
+      "noUnlimitedTravel": "No unlimited travel",
+      "select": "Buy {card}",
+      "secondClass": "2nd Class",
+      "firstClass": "1st Class"
+    },
+    "table": {
+      "features": "Features",
+      "bc25": "BahnCard 25",
+      "bc50": "BahnCard 50",
+      "flexpreis": "Discount on Flexiprice tickets",
+      "flexpreisTooltip": "Discount applies to standard flexible tickets",
+      "sparpreis": "Discount on Saverprice tickets",
+      "sparpreisTooltip": "Discount applies to saver tickets with limited availability",
+      "discountAmount": "Discount amount",
+      "discountAmountTooltip": "25% or 50% based on card type",
+      "freeTravel": "Free travel",
+      "freeTravelTooltip": "BahnCard 100 offers unlimited travel",
+      "cityTicket": "City Ticket included",
+      "cityTicketTooltip": "Free use of public transport at destination",
+      "loungeAccess": "Lounge access",
+      "loungeAccessTooltip": "Access to DB lounges at major stations",
+      "reservedSeat": "Reserved seat included",
+      "reservedSeatTooltip": "Free seat reservations with BahnCard 100",
+      "europeanDiscounts": "European discounts",
+      "europeanDiscountsTooltip": "Various discounts on partner railways in Europe"
+    }
+  },
+  "faq": {
+    "headline": "Frequently Asked Questions",
+    "subline": "Find answers to the most common questions about BahnCards and their benefits.",
+    "notFound": "Couldn't find what you're looking for?",
+    "helpCenter": "Visit Help Center",
+    "items": [
+      {
+        "question": "What is a BahnCard?",
+        "answer": "A BahnCard is a discount card issued by Deutsche Bahn, Germany's national railway company. It offers various levels of discounts on train tickets for a period of one year. BahnCards are available in three main types: BahnCard 25 (25% discount), BahnCard 50 (50% discount), and BahnCard 100 (100% discount, essentially a flat-rate ticket)."
+      },
+      {
+        "question": "How long is my BahnCard valid for?",
+        "answer": "A standard BahnCard is valid for one year from the date of purchase. Trial BahnCards are valid for three months. Your BahnCard will automatically renew for another year unless you cancel it at least 6 weeks before the expiration date. The exact expiration date is printed on your BahnCard."
+      },
+      {
+        "question": "Can I use my BahnCard for international train journeys?",
+        "answer": "Yes, your BahnCard can be used for international journeys that originate in Germany. The discount applies to the German part of the journey. Additionally, many European railway partners offer discounts to BahnCard holders, such as ÖBB in Austria, SBB in Switzerland, and SNCF in France."
+      },
+      {
+        "question": "What's the difference between 1st and 2nd class BahnCards?",
+        "answer": "A 1st class BahnCard entitles you to discounts on 1st class tickets, while a 2nd class BahnCard provides discounts on 2nd class tickets. 1st class offers more spacious seating, additional services, and quieter compartments. BahnCard 50 and BahnCard 100 for 1st class also include additional benefits like lounge access and City-Ticket for local public transport."
+      },
+      {
+        "question": "How do I cancel my BahnCard?",
+        "answer": "You can cancel your BahnCard by submitting a cancellation request at least 6 weeks before the expiration date. Cancellation can be done online through your customer account, by phone via the customer service center, in person at a DB travel center, or in writing by mail to the Deutsche Bahn customer service address provided with your BahnCard."
+      },
+      {
+        "question": "Can I upgrade my BahnCard?",
+        "answer": "Yes, you can upgrade your BahnCard at any time. For example, you can upgrade from a BahnCard 25 to a BahnCard 50 or from 2nd class to 1st class. The price difference will be calculated proportionally based on the remaining validity period of your current BahnCard. Contact DB customer service or visit a DB travel center to request an upgrade."
+      },
+      {
+        "question": "Do children need their own BahnCard?",
+        "answer": "Children under 6 years travel for free without a ticket or BahnCard when accompanied by an adult. Children aged 6-14 can have their own BahnCard at reduced rates, or they can travel for free when accompanied by parents or grandparents who own a BahnCard, as long as they are listed on the adult's BahnCard family supplement."
+      },
+      {
+        "question": "What happens if I lose my BahnCard?",
+        "answer": "If you lose your BahnCard, you should report it immediately to DB customer service. A replacement card can be issued for a fee (usually around €15). If you have the digital BahnCard in the DB Navigator app, you can continue to use it while waiting for your physical replacement card."
+      }
+    ]
+  }
+}

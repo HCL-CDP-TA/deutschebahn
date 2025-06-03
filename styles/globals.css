@@ -1,0 +1,7 @@
+/* Remove border and box-shadow from the Google Place Autocomplete input */
+gmp-place-autocomplete::part(input) {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent;
+}

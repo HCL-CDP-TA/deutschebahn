@@ -1,0 +1,196 @@
+{
+  "metadata": {
+    "title": "BahnCard: Bei jeder Reise sparen",
+    "description": "Sparen Sie mit einer BahnCard 25 oder 50 Prozent auf jede Fahrt. Mit der BahnCard 100 reisen Sie sogar unbegrenzt in Deutschland und garantiert klimafreundlich!"
+  },
+  "checkout": {
+    "progressbar": {
+      "step1": "BahnCard auswählen",
+      "step2": "Persönliche Daten",
+      "step3": "Zahlung",
+      "step4": "Bestätigung"
+    },
+    "configuration": {
+      "secondClass": "2. Klasse",
+      "firstClass": "1. Klasse",
+      "travelClass": "Reiseklasse",
+      "startDate": "Startdatum",
+      "price": "Preis",
+      "back": "Zurück",
+      "continue": "Weitermachen"
+    }
+  },
+  "navigation": {
+    "tickets": "Tickets",
+    "bahncard": "BahnCard",
+    "travelInfo": "Reiseinformationen",
+    "helpContact": "Hilfe & Kontakt",
+    "login": "Amelden",
+    "loginTitle": "Amelden",
+    "email": "Benutzername",
+    "password": "Passwort",
+    "logout": "Ausloggen"
+  },
+  "hero": {
+    "imageAlt": "Zug auf Schienen in Deutschland",
+    "headline": "Sparen Sie bei <highlight>jeder</highlight> Fahrt mit der BahnCard",
+    "subline": "Erhalten Sie bis zu 50% Rabatt auf Zugtickets in ganz Deutschland und Europa mit unseren BahnCard-Optionen.",
+    "compareButton": "BahnCards vergleichen",
+    "calculateButton": "Ersparnis berechnen",
+    "info": "BahnCard 25, 50 und 100 bieten unterschiedliche Rabatte, die zu Ihrer Reisehäufigkeit passen. Finden Sie die perfekte Karte für Ihre Bedürfnisse."
+  },
+  "intro": {
+    "title": "Ihre intelligente Wahl für Bahnreisen",
+    "subtitle": "Egal, ob Sie gelegentlich oder häufig reisen, es gibt eine BahnCard, die zu Ihnen passt. Genießen Sie das ganze Jahr über erhebliche Rabatte auf Deutsche Bahn Leistungen.",
+    "features": {
+      "cardOptions": {
+        "title": "Drei Kartenoptionen",
+        "description": "Wählen Sie zwischen BahnCard 25, 50 oder 100, abhängig von Ihrer Reisehäufigkeit und bevorzugten Klasse."
+      },
+      "savings": {
+        "title": "Sofortige Ersparnis",
+        "description": "Erhalten Sie 25%, 50% oder sogar 100% Rabatt auf den regulären Fahrpreis bei jeder Fahrt."
+      },
+      "routes": {
+        "title": "Gültig für alle Strecken",
+        "description": "Ihre BahnCard gilt auf allen Strecken der Deutschen Bahn und vielen Partnerbahnen."
+      },
+      "validity": {
+        "title": "Einjährige Gültigkeit",
+        "description": "Genießen Sie die Vorteile für ein ganzes Jahr mit automatischer Verlängerungsoption für kontinuierliche Ersparnisse."
+      }
+    }
+  },
+  "footer": {
+    "aboutTitle": "Über uns",
+    "about": "Über uns",
+    "career": "Karriere",
+    "press": "Presse",
+    "sustainability": "Nachhaltigkeit",
+    "customerServiceTitle": "Kundenservice",
+    "helpContact": "Hilfe & Kontakt",
+    "passengerRights": "Fahrgastrechte",
+    "accessibility": "Barrierefreiheit",
+    "lostFound": "Fundbüro",
+    "travelInfoTitle": "Reiseinformationen",
+    "timetableBooking": "Fahrplan & Buchung",
+    "dbNavigatorApp": "DB Navigator App",
+    "delayInfo": "Verspätungsinformationen",
+    "railFly": "Rail & Fly",
+    "legalTitle": "Rechtliches",
+    "terms": "Allgemeine Geschäftsbedingungen",
+    "privacy": "Datenschutz",
+    "cookieSettings": "Cookie-Einstellungen",
+    "imprint": "Impressum",
+    "copyright": "Deutsche Bahn AG. Alle Rechte vorbehalten.",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "instagram": "Instagram",
+    "linkedin": "LinkedIn"
+  },
+  "comparison": {
+    "headline": "BahnCard-Optionen vergleichen",
+    "subline": "Finden Sie die perfekte BahnCard für Ihre Reisegewohnheiten. Vergleichen Sie die Vorteile und wählen Sie die Option, die Ihnen am meisten spart.",
+    "secondClass": "2. Klasse",
+    "firstClass": "1. Klasse",
+    "card": {
+      "bc25Title": "BahnCard 25",
+      "bc25Subtitle": "25% discount on the flexible fare and 25% on saver offers in long-distance transport (City-Ticket is not included)",
+      "bc50Title": "BahnCard 50",
+      "bc50Subtitle": "50% discount on the flexible fare and 25% discount on saver offers in long-distance transport (City-Ticket is not included)",
+      "bc25trialTitle": "BahnCard 25 Trial",
+      "bc25trialSubtitle": "Immediate savings: the trial BahnCard is often worth it from the first journey onwards",
+      "bc50trialTitle": "BahnCard 50 Trial",
+      "bc50trialSubtitle": "Immediate savings: the trial BahnCard is often worth it from the first journey onwards",
+      "bc25": "BahnCard 25",
+      "bc50": "BahnCard 50",
+      "bc100": "BahnCard 100",
+      "bc25Price2nd": "5,90",
+      "bc25Year2nd": "59,90",
+      "bc50Price2nd": "14,90",
+      "bc50Year2nd": "149",
+      "bc100Price2nd": "383",
+      "bc100Year2nd": "4.399",
+      "bc25Price1st": "12,50",
+      "bc25Year1st": "125",
+      "bc50Price1st": "24,90",
+      "bc50Year1st": "249",
+      "bc100Price1st": "683",
+      "bc100Year1st": "7.699",
+      "recommended": "Empfohlen",
+      "perMonth": "/Monat",
+      "perYear": "pro Jahr",
+      "discountOnTickets": "Rabatt auf Tickets",
+      "validForYear": "1 Jahr gültig",
+      "offFlexpreis": "Rabatt auf Flexpreis-Tickets",
+      "offSparpreis": "Rabatt auf Sparpreis-Tickets",
+      "unlimitedTravel": "Unbegrenztes Reisen in Deutschland",
+      "noUnlimitedTravel": "Kein unbegrenztes Reisen",
+      "select": "{card} kaufen",
+      "secondClass": "2. Klasse",
+      "firstClass": "1. Klasse"
+    },
+    "table": {
+      "features": "Merkmale",
+      "bc25": "BahnCard 25",
+      "bc50": "BahnCard 50",
+      "bc100": "BahnCard 100",
+      "flexpreis": "Rabatt auf Flexpreis-Tickets",
+      "flexpreisTooltip": "Rabatt gilt für flexible Standardtickets",
+      "sparpreis": "Rabatt auf Sparpreis-Tickets",
+      "sparpreisTooltip": "Rabatt gilt für Sparangebote mit begrenzter Verfügbarkeit",
+      "discountAmount": "Rabatthöhe",
+      "discountAmountTooltip": "25%, 50% oder 100%, abhängig vom Kartentyp",
+      "freeTravel": "Kostenloses Reisen",
+      "freeTravelTooltip": "BahnCard 100 bietet unbegrenztes Reisen",
+      "cityTicket": "City-Ticket inklusive",
+      "cityTicketTooltip": "Kostenlose Nutzung des öffentlichen Nahverkehrs am Zielort",
+      "loungeAccess": "Lounge-Zugang",
+      "loungeAccessTooltip": "Zugang zu DB Lounges in großen Bahnhöfen",
+      "reservedSeat": "Sitzplatzreservierung inklusive",
+      "reservedSeatTooltip": "Kostenlose Sitzplatzreservierung mit BahnCard 100",
+      "europeanDiscounts": "Europäische Rabatte",
+      "europeanDiscountsTooltip": "Verschiedene Rabatte auf Partnerbahnen in Europa"
+    }
+  },
+  "faq": {
+    "headline": "Häufig gestellte Fragen",
+    "subline": "Finden Sie Antworten auf die häufigsten Fragen zu BahnCards und ihren Vorteilen.",
+    "notFound": "Sie finden nicht, was Sie suchen?",
+    "helpCenter": "Besuchen Sie das Hilfezentrum",
+    "items": [
+      {
+        "question": "Was ist eine BahnCard?",
+        "answer": "Eine BahnCard ist eine Rabattkarte der Deutschen Bahn, dem nationalen Eisenbahnunternehmen Deutschlands. Sie bietet verschiedene Rabattstufen auf Zugtickets für ein Jahr. BahnCards sind in drei Haupttypen erhältlich: BahnCard 25 (25% Rabatt), BahnCard 50 (50% Rabatt) und BahnCard 100 (100% Rabatt, im Wesentlichen ein Flatrate-Ticket)."
+      },
+      {
+        "question": "Wie lange ist meine BahnCard gültig?",
+        "answer": "Eine Standard-BahnCard ist ein Jahr ab Kaufdatum gültig. Probe-BahnCards gelten für drei Monate. Ihre BahnCard verlängert sich automatisch um ein weiteres Jahr, sofern Sie sie nicht mindestens 6 Wochen vor Ablauf kündigen. Das genaue Ablaufdatum ist auf Ihrer BahnCard vermerkt."
+      },
+      {
+        "question": "Kann ich meine BahnCard für internationale Zugreisen nutzen?",
+        "answer": "Ja, Ihre BahnCard kann für internationale Reisen genutzt werden, die in Deutschland beginnen. Der Rabatt gilt für den deutschen Teil der Reise. Zusätzlich bieten viele europäische Partnerbahnen Rabatte für BahnCard-Inhaber an, wie z.B. ÖBB in Österreich, SBB in der Schweiz und SNCF in Frankreich."
+      },
+      {
+        "question": "Was ist der Unterschied zwischen BahnCards der 1. und 2. Klasse?",
+        "answer": "Eine BahnCard der 1. Klasse berechtigt Sie zu Rabatten auf Tickets der 1. Klasse, während eine BahnCard der 2. Klasse Rabatte auf Tickets der 2. Klasse bietet. Die 1. Klasse bietet mehr Platz, zusätzliche Services und ruhigere Abteile. BahnCard 50 und BahnCard 100 für die 1. Klasse beinhalten zusätzliche Vorteile wie Lounge-Zugang und City-Ticket für den lokalen Nahverkehr."
+      },
+      {
+        "question": "Wie kündige ich meine BahnCard?",
+        "answer": "Sie können Ihre BahnCard kündigen, indem Sie mindestens 6 Wochen vor Ablauf eine Kündigung einreichen. Die Kündigung kann online über Ihr Kundenkonto, telefonisch über den Kundenservice, persönlich in einem DB Reisezentrum oder schriftlich per Post an die Deutsche Bahn Kundenservice-Adresse, die mit Ihrer BahnCard geliefert wurde, erfolgen."
+      },
+      {
+        "question": "Kann ich meine BahnCard upgraden?",
+        "answer": "Ja, Sie können Ihre BahnCard jederzeit upgraden. Zum Beispiel können Sie von einer BahnCard 25 auf eine BahnCard 50 oder von der 2. Klasse auf die 1. Klasse upgraden. Der Preisunterschied wird anteilig basierend auf dem Restgültigkeitszeitraum Ihrer aktuellen BahnCard berechnet. Wenden Sie sich an den DB Kundenservice oder besuchen Sie ein DB Reisezentrum, um ein Upgrade anzufordern."
+      },
+      {
+        "question": "Brauchen Kinder eine eigene BahnCard?",
+        "answer": "Kinder unter 6 Jahren reisen kostenlos ohne Ticket oder BahnCard, wenn sie von einem Erwachsenen begleitet werden. Kinder im Alter von 6-14 können eine eigene BahnCard zu reduzierten Preisen haben oder kostenlos reisen, wenn sie von Eltern oder Großeltern mit einer BahnCard begleitet werden, sofern sie im Familienzuschlag der BahnCard des Erwachsenen eingetragen sind."
+      },
+      {
+        "question": "Was passiert, wenn ich meine BahnCard verliere?",
+        "answer": "Wenn Sie Ihre BahnCard verlieren, sollten Sie dies umgehend dem DB Kundenservice melden. Eine Ersatzkarte kann gegen eine Gebühr (in der Regel etwa 15 €) ausgestellt werden. Wenn Sie die digitale BahnCard in der DB Navigator App haben, können Sie diese weiterhin nutzen, während Sie auf Ihre physische Ersatzkarte warten."
+      }
+    ]
+  }
+}
