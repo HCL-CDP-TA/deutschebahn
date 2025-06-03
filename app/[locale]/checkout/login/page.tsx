@@ -67,7 +67,6 @@ export default function CustomerDataPage() {
                 </label>
                 <input
                   id="email"
-                  type="email"
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
@@ -81,7 +80,6 @@ export default function CustomerDataPage() {
                 <input
                   id="password"
                   type="password"
-                  required
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   className="w-full px-3 py-2 border border-slate-300 dark:border-slate-700 rounded-md bg-transparent"
