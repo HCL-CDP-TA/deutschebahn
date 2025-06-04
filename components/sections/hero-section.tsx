@@ -3,7 +3,7 @@ import Image from "next/image"
 import { useTranslations } from "next-intl"
 
 const HeroSection = () => {
-  const t = useTranslations("hero")
+  const t = useTranslations("bahncard.hero")
 
   return (
     <div className="relative">
@@ -30,17 +30,6 @@ const HeroSection = () => {
             })}
           </h1>
           <p className="text-xl text-white/90 mb-8">{t("subline")}</p>
-          {/* <div className="flex flex-col sm:flex-row gap-4">
-            <Button className="bg-red-600 hover:bg-red-700 text-white rounded-md px-6 py-6 text-lg font-semibold">
-              {t("compareButton")}
-            </Button>
-            <Button
-              variant="outline"
-              className="bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border-white/30 rounded-md px-6 py-6 text-lg font-semibold">
-              {t("calculateButton")}
-            </Button>
-          </div> */}
-
           <div className="mt-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4 md:p-6">
             <p className="text-white/90 font-medium text-sm md:text-base">{t("info")}</p>
           </div>

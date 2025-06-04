@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react"
 import { useTranslations } from "next-intl"
 
 const FAQSection = () => {
-  const t = useTranslations("faq")
+  const t = useTranslations("bahncard.faq")
 
   // Get FAQ items from translations
   const faqItems = t.raw("items") as { question: string; answer: string }[]

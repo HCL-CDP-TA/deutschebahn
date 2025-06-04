@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import ProgressBar from "@/components/checkout/ProgressBar"
+import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 import { useRouter, useSearchParams } from "next/navigation"

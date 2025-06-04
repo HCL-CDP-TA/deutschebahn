@@ -50,16 +50,16 @@ const Header = () => {
               </Link>
               {/* Desktop Nav */}
               <nav className="hidden md:flex items-center space-x-6">
-                <Link href="/" className="text-sm font-medium hover:text-red-600 dark:hover:text-red-500">
-                  {t("tickets")}
-                </Link>
                 <Link href="/bahncard" className="text-sm font-medium hover:text-red-600 dark:hover:text-red-500">
                   {t("bahncard")}
                 </Link>
-                <Link href="/travel-info" className="text-sm font-medium hover:text-red-600 dark:hover:text-red-500">
+                <Link href="#" className="text-sm font-medium hover:text-red-600 dark:hover:text-red-500">
+                  {t("tickets")}
+                </Link>
+                <Link href="#" className="text-sm font-medium hover:text-red-600 dark:hover:text-red-500">
                   {t("travelInfo")}
                 </Link>
-                <Link href="/help-contact" className="text-sm font-medium hover:text-red-600 dark:hover:text-red-500">
+                <Link href="#" className="text-sm font-medium hover:text-red-600 dark:hover:text-red-500">
                   {t("helpContact")}
                 </Link>
               </nav>
@@ -71,19 +71,11 @@ const Header = () => {
               <ModeToggle />
               <div className="hidden md:flex flex-1 justify-center">
                 {username ? (
-                  <Button
-                    variant="default"
-                    className="w-auto flex items-center"
-                    onClick={handleLogout}
-                  >
+                  <Button variant="default" className="w-auto flex items-center" onClick={handleLogout}>
                     {t("logout")} ({username})
                   </Button>
                 ) : (
-                  <Button
-                    variant="default"
-                    className="w-auto flex items-center"
-                    onClick={() => setShowLogin(true)}
-                  >
+                  <Button variant="default" className="w-auto flex items-center" onClick={() => setShowLogin(true)}>
                     <UserRound size={32} className="pr-2" /> {t("login")}
                   </Button>
                 )}

@@ -16,9 +16,9 @@ type BahnCardFeature = {
 }
 
 const BahnCardComparison = () => {
-  const t = useTranslations("comparison")
-  const tCard = useTranslations("comparison.card")
-  const tTable = useTranslations("comparison.table")
+  const t = useTranslations("bahncard.comparison")
+  const tCard = useTranslations("bahncard.comparison.card")
+  const tTable = useTranslations("bahncard.comparison.table")
 
   const features: BahnCardFeature[] = [
     {
@@ -159,15 +159,15 @@ const CardOption = ({
         </div>
       )}
 
-      <div className={`${color} text-white p-6 relative`}>
+      <div className={`${color} text-white p-4 relative`}>
         <div className="absolute top-0 right-0 mt-4 mr-4">
           <Badge variant="outline" className="bg-white/10 text-white border-white/20">
             {travelClass === "2nd" ? tCard("secondClass") : tCard("firstClass")}
           </Badge>
         </div>
-        <h3 className="text-xl font-bold mb-2 mt-5">{tCard(title)}</h3>
+        <h3 className="text-xl font-bold mb-2 mt-7">{tCard(title)}</h3>
         <div className="flex items-baseline">
-          <span className="text-2xl font-bold">€{price}</span>
+          <span className="text-3xl font-bold">€{price}</span>
         </div>
         <div className="mt-4 inline-block text-sm h-32">{tCard(subTitle)}</div>
       </div>

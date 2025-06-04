@@ -8,7 +8,7 @@ import { CreditCard, Landmark } from "lucide-react"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Label } from "@/components/ui/label"
 import Image from "next/image"
-import ProgressBar from "@/components/checkout/ProgressBar"
+import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
 import { useTranslations } from "next-intl"
 import cards from "@/app/data/cards"
 

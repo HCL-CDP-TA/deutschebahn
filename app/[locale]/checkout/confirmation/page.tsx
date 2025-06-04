@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Check, Download } from "lucide-react"
-import ProgressBar from "@/components/checkout/ProgressBar"
+import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
 import { useEffect, useMemo, useState } from "react"
 import { useTranslations } from "next-intl"
 
