@@ -64,7 +64,7 @@ export default function CustomerDetailsPage() {
 
   // Load Google Maps JS API
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyD7ragpeL7LMjC62Ug4fTZPeQJtF2pAaqc", // Replace with your API key
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
     libraries: ["places"],
   })
 
