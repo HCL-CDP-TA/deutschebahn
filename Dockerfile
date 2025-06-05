@@ -1,0 +1,28 @@
+# 1. Use the official Node.js image
+FROM node:18-alpine AS builder
+
+# 2. Set the working directory
+WORKDIR /app
+
+# 3. Copy dependencies
+COPY package*.json ./
+COPY . .
+
+# 4. Install dependencies and build
+RUN npm install
+RUN npm run build
+
+# 5. Production image
+FROM node:18-alpine AS runner
+
+WORKDIR /app
+
+# If you're using Next.js 13+ with standalone output
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/package.json ./package.json
+
+# Start the app
+EXPOSE 3000
+CMD ["node", "server.js"]

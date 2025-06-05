@@ -2,16 +2,7 @@
 import createNextIntlPlugin from "next-intl/plugin"
 
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.pexels.com",
-        port: "",
-        search: "",
-      },
-    ],
-  },
+  output: "standalone",
 }
 
 const withNextIntl = createNextIntlPlugin()

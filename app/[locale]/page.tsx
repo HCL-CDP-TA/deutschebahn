@@ -15,7 +15,7 @@ export default function HomePage() {
         <div className="absolute inset-0 z-0">
           <div className="relative w-full h-full">
             <Image
-              src="/shutterstock_1342990457.avif"
+              src="/home-hero.avif"
               alt={t("heroImageAlt")}
               fill
               priority
@@ -78,7 +78,7 @@ export default function HomePage() {
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-lg">
               <Image
-                src="/pendler_2000x1000px.avif"
+                src="/home-subhero.avif"
                 alt={t("bahncardImageAlt")}
                 sizes="(max-w: 500px)"
                 fill

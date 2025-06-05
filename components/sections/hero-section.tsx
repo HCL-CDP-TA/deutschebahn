@@ -10,13 +10,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <div className="relative w-full h-full">
-          <Image
-            src="/BC50_Mitfahrer_Bühnenbild_NoHandy_1280x540.avif"
-            alt={t("imageAlt")}
-            fill
-            priority
-            className="object-cover"
-          />
+          <Image src="/bahncard-hero.avif" alt={t("imageAlt")} fill priority className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-transparent" />
         </div>
       </div>
