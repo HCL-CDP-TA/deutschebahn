@@ -77,7 +77,13 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="relative h-[400px] rounded-xl overflow-hidden shadow-lg">
-              <Image src="/pendler_2000x1000px.avif" alt={t("bahncardImageAlt")} fill className="object-cover" />
+              <Image
+                src="/pendler_2000x1000px.avif"
+                alt={t("bahncardImageAlt")}
+                sizes="(max-w: 500px)"
+                fill
+                className="object-cover"
+              />
             </div>
           </div>
         </div>

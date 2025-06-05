@@ -67,7 +67,7 @@
       "selectTitle": "Anrede auswählen",
       "mr": "Herr",
       "mrs": "Frau",
-      "ms": "Ms",
+      "ms": "Frau",
       "dr": "Dr",
       "firstName": "Vorname",
       "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
@@ -84,7 +84,7 @@
       "choosePayment": "Wählen Sie Ihre Zahlungsmethode",
       "paypal": "PayPal",
       "sepa": "SEPA-Lastschrift",
-      "savedCard": "VISA **** 2949",
+      "savedCard": "VISA **** 1234",
       "addNewCard": "Neue Kreditkarte hinzufügen",
       "bonvoyo": "Bonvoyo",
       "price": "Preis"
@@ -104,7 +104,8 @@
       "username": "Benutzername",
       "address": "Adresse",
       "price": "Preis",
-      "downloadReceipt": "Beleg herunterladen"
+      "downloadReceipt": "Beleg herunterladen",
+      "paymentMethod": "Zahlungsmethode"
     }
   },
   "bahncard": {

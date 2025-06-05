@@ -18,11 +18,35 @@ const Header = () => {
   const t = useTranslations("navigation")
 
   useEffect(() => {
-    setUsername(localStorage.getItem("bahncard-username"))
+    if (!showLogin) {
+      setUsername(localStorage.getItem("bahncard-username"))
+    }
   }, [showLogin])
+
+  // Listen for changes to localStorage (e.g., login in another tab or elsewhere in the app)
+  useEffect(() => {
+    const handleStorage = (event: StorageEvent) => {
+      if (event.key === "bahncard-username") {
+        setUsername(event.newValue)
+      }
+    }
+    window.addEventListener("storage", handleStorage)
+
+    return () => window.removeEventListener("storage", handleStorage)
+  }, [showLogin])
+
+  // Custom event listener for login
+  useEffect(() => {
+    const handleLogin = () => {
+      setUsername(localStorage.getItem("bahncard-username"))
+    }
+    window.addEventListener("bahncard-login", handleLogin)
+    return () => window.removeEventListener("bahncard-login", handleLogin)
+  }, [])
 
   const handleLogout = () => {
     localStorage.removeItem("bahncard-username")
+    localStorage.removeItem("bahncard-customer-data") // Clear all stored customer data
     setUsername(null)
   }
 

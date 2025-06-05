@@ -17,7 +17,6 @@ export default async function LocaleLayout({
     notFound()
   }
 
-  // Load messages for the current locale
   let messages
   try {
     messages = (await import(`@/messages/${locale}.json`)).default

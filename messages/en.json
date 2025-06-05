@@ -85,7 +85,7 @@
       "choosePayment": "Choose how you'd like to pay",
       "paypal": "PayPal",
       "sepa": "SEPA Direct Debit",
-      "savedCard": "VISA **** 2949",
+      "savedCard": "VISA **** 1234",
       "addNewCard": "Add New Credit Card",
       "bonvoyo": "Bonvoyo",
       "price": "Price"
@@ -105,7 +105,8 @@
       "username": "Username",
       "address": "Address",
       "price": "Price",
-      "downloadReceipt": "Download Receipt"
+      "downloadReceipt": "Download Receipt",
+      "paymentMethod": "Payment Method"
     }
   },
   "bahncard": {

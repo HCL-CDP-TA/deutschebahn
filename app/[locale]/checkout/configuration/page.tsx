@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useSearchParams, useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Calendar } from "@/components/ui/calendar"
@@ -9,11 +9,10 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from "date-fns"
 import { Calendar as CalendarIcon, CreditCard } from "lucide-react"
 import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
-import { useTranslations } from "next-intl"
+import { useTranslations, useLocale } from "next-intl"
 import cards from "@/app/data/cards"
-import Link from "next/link"
-import { useLocale } from "next-intl"
 import { de, enAU, Locale } from "date-fns/locale"
+import type { CheckoutData } from "@/app/types/checkout"
 
 const localeMap: Record<string, Locale> = {
   en: enAU,
@@ -21,27 +20,54 @@ const localeMap: Record<string, Locale> = {
 }
 
 const ConfigurationPage = () => {
-  const searchParams = useSearchParams()
   const router = useRouter()
+  const searchParams = useSearchParams()
   const t = useTranslations("checkout.configuration")
-  const tCard = useTranslations("comparison.card")
+  const tCard = useTranslations("bahncard.comparison.card")
 
-  // Get query params
-  const travelClassParam = searchParams.get("travelClass") as "1st" | "2nd" | null
-  const cardParam = searchParams.get("card") || ""
+  // Get travelClass and card from search params if present
+  const travelClassParam = searchParams.get("travelClass")
+  const cardParam = searchParams.get("card")
 
-  const [travelClass, setTravelClass] = useState<number>(travelClassParam == "1st" ? 0 : 1)
-  const [cardTitle, setCardTitle] = useState(cardParam)
+  const [travelClass, setTravelClass] = useState<number>(0)
+  const [cardTitle, setCardTitle] = useState("")
   const [startDate, setStartDate] = useState<Date>(new Date())
+  const [prevData, setPrevData] = useState<Partial<CheckoutData>>({})
 
-  // Update query params when travelClass or cardTitle changes
+  // Prefill from localStorage if available, but override with params if present
   useEffect(() => {
-    const params = new URLSearchParams(searchParams)
-    params.set("travelClass", travelClass == 0 ? "1st" : "2nd")
-    params.set("card", cardTitle)
-    router.replace(`?${params.toString()}`)
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("bahncard-customer-data")
+      if (stored) {
+        try {
+          const data: CheckoutData = JSON.parse(stored)
+          setPrevData(data)
+          // OVERRIDE with params if present, else use stored
+          if (cardParam) {
+            setCardTitle(cardParam)
+          } else if (data.card) {
+            setCardTitle(data.card)
+          }
+          if (travelClassParam) {
+            setTravelClass(travelClassParam === "2nd" ? 1 : 0)
+          } else if (data.travelClass) {
+            setTravelClass(data.travelClass === "2nd" ? 1 : 0)
+          }
+          if (data.startDate) setStartDate(new Date(data.startDate))
+        } catch {}
+      } else {
+        // If not in localStorage, use params if present
+        if (cardParam) setCardTitle(cardParam)
+        if (travelClassParam) setTravelClass(travelClassParam === "2nd" ? 1 : 0)
+      }
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [travelClass, cardTitle])
+  }, [cardParam, travelClassParam])
+
+  // Custom back button logic
+  const handleBack = () => {
+    router.push("/bahncard")
+  }
 
   const getCardPriceByTitle = (cardClass: "firstClass" | "secondClass", title: string) => {
     const cardArray = cards[cardClass]
@@ -56,10 +82,31 @@ const ConfigurationPage = () => {
 
     return undefined // not found
   }
-  const prices = [getCardPriceByTitle("firstClass", cardParam), getCardPriceByTitle("secondClass", cardParam)]
+  const prices = [getCardPriceByTitle("firstClass", cardTitle) ?? 0, getCardPriceByTitle("secondClass", cardTitle) ?? 0]
 
   const appLocale = useLocale()
   const dateFnsLocale = localeMap[appLocale] || enAU
+
+  // Save selection to localStorage and continue, merging with previous data
+  const handleContinue = () => {
+    const selectedClass = travelClass === 0 ? "1st" : "2nd"
+    const selectedCard = cardTitle
+    const selectedPrice = prices[travelClass]
+    const data: CheckoutData = {
+      ...prevData,
+      card: selectedCard,
+      travelClass: selectedClass,
+      price: selectedPrice,
+      startDate: startDate ? startDate.toISOString() : "",
+      title: prevData.title ?? "",
+      firstName: prevData.firstName ?? "",
+      lastName: prevData.lastName ?? "",
+      address: prevData.address ?? "",
+      dateOfBirth: prevData.dateOfBirth ?? "",
+    }
+    localStorage.setItem("bahncard-customer-data", JSON.stringify(data))
+    router.push("/checkout/login")
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12">
@@ -74,8 +121,8 @@ const ConfigurationPage = () => {
               <CreditCard className="h-8 w-8 text-red-600 dark:text-red-500" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold mb-2">{tCard(cardParam)}</h1>
-              <p className="text-slate-600 dark:text-slate-400">{tCard(cardParam.replace("Title", "Subtitle"))}</p>
+              <h1 className="text-3xl font-bold mb-2">{tCard(cardTitle)}</h1>
+              <p className="text-slate-600 dark:text-slate-400">{tCard(cardTitle.replace("Title", "Subtitle"))}</p>
             </div>
           </div>
 
@@ -140,14 +187,12 @@ const ConfigurationPage = () => {
 
             {/* Navigation Buttons */}
             <div className="flex gap-3">
-              <Button variant="outline" className="flex-1" onClick={() => window.history.back()}>
+              <Button variant="outline" className="flex-1" onClick={handleBack}>
                 {t("back")}
               </Button>
-              <Link
-                className="flex-1"
-                href={`/checkout/login?travelClass=${travelClass === 0 ? "1st" : "2nd"}&card=${cardTitle}`}>
-                <Button className="w-full">{t("continue")}</Button>
-              </Link>
+              <Button className="flex-1" onClick={handleContinue}>
+                {t("continue")}
+              </Button>
             </div>
           </Card>
         </div>

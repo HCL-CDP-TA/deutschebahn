@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { CreditCard, Landmark } from "lucide-react"
@@ -11,6 +11,7 @@ import Image from "next/image"
 import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
 import { useTranslations } from "next-intl"
 import cards from "@/app/data/cards"
+import type { CheckoutData } from "@/app/types/checkout"
 
 type PaymentMethod = "paypal" | "sepa" | "saved-card" | "new-card" | "bonvoyo"
 
@@ -18,40 +19,35 @@ export default function PaymentPage() {
   const router = useRouter()
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>("saved-card")
   const t = useTranslations("checkout.payment")
-  const tCard = useTranslations("comparison.card")
+  const tCard = useTranslations("bahncard.comparison.card")
   const tNav = useTranslations("navigation")
 
-  // Get query params
-  const searchParams = useSearchParams()
-  const travelClassParam = searchParams.get("travelClass") as "1st" | "2nd" | null
-  const cardParam = searchParams.get("card") || ""
+  // Read checkout data from localStorage
+  const [checkoutData, setCheckoutData] = useState<CheckoutData | null>(null)
+  const [price, setPrice] = useState<number | undefined>(undefined)
 
-  const [travelClass, setTravelClass] = useState<Number>(travelClassParam == "1st" ? 0 : 1)
-  const [cardTitle, setCardTitle] = useState(cardParam)
-
-  const getCardPriceByTitle = (cardClass: "firstClass" | "secondClass", title: string) => {
-    const cardArray = cards[cardClass]
-    if (!cardArray) return undefined
-
-    for (const cardObj of cardArray) {
-      const [key, value] = Object.entries(cardObj)[0]
-      if (value.title === title) {
-        return value.price
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("bahncard-customer-data")
+      if (stored) {
+        try {
+          const data: CheckoutData = JSON.parse(stored)
+          setCheckoutData(data)
+          setSelectedMethod((data as any).paymentMethod || "saved-card")
+          setPrice(data.price)
+        } catch {}
       }
     }
+  }, [])
 
-    return undefined // not found
+  // Save payment method and continue
+  const handleContinue = () => {
+    if (!checkoutData) return
+    const updatedData = { ...checkoutData, paymentMethod: selectedMethod }
+    localStorage.setItem("bahncard-customer-data", JSON.stringify(updatedData))
+    setCheckoutData(updatedData)
+    router.push("/checkout/confirmation")
   }
-  const price = getCardPriceByTitle(travelClassParam === "1st" ? "firstClass" : "secondClass", cardParam)
-
-  // Update query params when travelClass or cardTitle changes
-  useEffect(() => {
-    const params = new URLSearchParams(searchParams)
-    params.set("travelClass", travelClass == 0 ? "1st" : "2nd")
-    params.set("card", cardTitle)
-    router.replace(`?${params.toString()}`)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [travelClass, cardTitle])
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12">
@@ -167,11 +163,9 @@ export default function PaymentPage() {
             {/* Navigation Buttons */}
             <div className="flex gap-3">
               <Button variant="outline" className="flex-1" onClick={() => router.back()}>
-                {tNav("cancel", { default: "Cancel" })}
+                {tNav("back", { default: "Back" })}
               </Button>
-              <Button
-                className="flex-1 bg-red-600 hover:bg-red-700 text-white"
-                onClick={() => router.push("/checkout/confirmation")}>
+              <Button className="flex-1 bg-red-600 hover:bg-red-700 text-white" onClick={handleContinue}>
                 {tNav("completePurchase", { default: "Complete Purchase" })}
               </Button>
             </div>
