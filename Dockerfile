@@ -1,5 +1,5 @@
 # 1. Use the official Node.js image
-FROM node:18-alpine AS builder
+FROM node:20-alpine AS builder
 
 # 2. Set the working directory
 WORKDIR /app
@@ -13,11 +13,10 @@ RUN npm install
 RUN npm run build
 
 # 5. Production image
-FROM node:18-alpine AS runner
+FROM node:20-alpine AS runner
 
 WORKDIR /app
 
-# If you're using Next.js 13+ with standalone output
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static

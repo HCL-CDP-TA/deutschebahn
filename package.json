@@ -1,12 +1,14 @@
 {
-  "name": "nextjs",
+  "name": "DB-BahnCard",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker-build": "docker build -t db-bahncard .",
+    "docker-run": "docker run --name db-bahncard -d -p 8080:3000 db-bahncard"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
