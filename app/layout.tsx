@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const config: HclCdpConfig = {
-  writeKey: "n9wjihaje10vlvbfxe69",
+  writeKey: process.env.NEXT_PUBLIC_HCLCDP_WRITE_KEY || "",
   inactivityTimeout: 1,
   enableSessionLogging: false,
   enableUserLogoutLogging: false,

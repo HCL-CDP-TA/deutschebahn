@@ -94,12 +94,18 @@ const ConfigurationPage = () => {
     const selectedClass = travelClass === 0 ? "1st" : "2nd"
     const selectedCard = cardTitle
     const selectedPrice = prices[travelClass]
+
+    // Ensure startDate is at midnight (local time)
+    const startDateMidnight = startDate
+      ? new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate())
+      : new Date()
+
     const data: CheckoutData = {
       ...prevData,
       card: selectedCard,
       travelClass: selectedClass,
       price: selectedPrice,
-      startDate: startDate ? startDate.toISOString() : "",
+      startDate: startDateMidnight.toISOString(), // <-- always midnight
       title: prevData.title ?? "",
       firstName: prevData.firstName ?? "",
       lastName: prevData.lastName ?? "",
@@ -135,7 +141,7 @@ const ConfigurationPage = () => {
               <CreditCard className="h-8 w-8 text-red-600 dark:text-red-500" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold mb-2">{cardTitle}</h1>
+              <h1 className="text-3xl font-bold mb-2">{tCard(cardTitle)}</h1>
               <p className="text-slate-600 dark:text-slate-400">{tCard(cardTitle.replace("Title", "Subtitle"))}</p>
             </div>
           </div>

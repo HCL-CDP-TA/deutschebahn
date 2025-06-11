@@ -18,7 +18,7 @@ A modern, multilingual demo web application for Deutsche Bahn's BahnCard, built 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [next-intl](https://github.com/amannn/next-intl) for translations
-- [@react-google-maps/api](https://github.com/JustFly1984/react-google-maps-api) for address autocomplete\
+- [@react-google-maps/api](https://github.com/JustFly1984/react-google-maps-api) for address autocomplete
 
 ## Getting Started
 
@@ -30,7 +30,7 @@ A modern, multilingual demo web application for Deutsche Bahn's BahnCard, built 
 
 2. **Set up environment variables:**
 
-   - Copy `.env.example` to `.env.local` and add your Google Maps API key and CDP write key.
+Copy `.env.example` to `.env.local` and add your Google Maps API key and CDP write key.
 
 3. **Run the development server:**
 
@@ -49,17 +49,10 @@ Commits are automatically deployed to [Vercel](https://vercel.com/) and visible 
 Create a `.env` as above
 
 ```bash
-npm run docker-build
-npm run docker-run
+npm run docker-rebuild
 ```
 
-## Project Structure
-
-- `/app` - Next.js app directory (pages, layouts, components)
-- `/components` - UI components
-- `/messages` - Translation files (`en.json`, `de.json`)
-- `/public` - Static assets (images, icons)
-- `/styles` - Global styles
+then access [http://localhost:8080](http://localhost:8080) or other docker hostname
 
 ## Customization
 
@@ -73,4 +66,4 @@ This project is for demonstration purposes only and is not affiliated with Deuts
 
 ---
 
-© {year} Your Name. All rights reserved.
+© 2025 HCL Software. All rights reserved.

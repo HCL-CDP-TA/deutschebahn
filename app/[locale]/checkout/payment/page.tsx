@@ -12,9 +12,6 @@ import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
 import { useTranslations } from "next-intl"
 import type { CheckoutData } from "@/app/types/checkout"
 import { CdpPageEvent, useCdp } from "hclcdp-web-sdk-react"
-import { title } from "node:process"
-import { add } from "date-fns"
-import { start } from "node:repl"
 
 type PaymentMethod = "paypal" | "sepa" | "saved-card" | "new-card" | "bonvoyo"
 
@@ -25,6 +22,7 @@ export default function PaymentPage() {
   const t = useTranslations("checkout.payment")
   const tCard = useTranslations("bahncard.comparison.card")
   const tNav = useTranslations("navigation")
+  const tCustomer = useTranslations("checkout.customerData")
 
   const orderNumber = useMemo(() => `DB-${new Date().getFullYear()}-${Math.floor(Math.random() * 10000000)}`, [])
 
@@ -58,7 +56,7 @@ export default function PaymentPage() {
       properties: {
         paymentMethod: selectedMethod,
         orderNumber,
-        title: t(checkoutData.title),
+        title: tCustomer(checkoutData.title),
         firstName: checkoutData.firstName,
         lastName: checkoutData.lastName,
         address: checkoutData.address,
