@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -10,17 +10,23 @@ import { Label } from "@/components/ui/label"
 import Image from "next/image"
 import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
 import { useTranslations } from "next-intl"
-import cards from "@/app/data/cards"
 import type { CheckoutData } from "@/app/types/checkout"
+import { CdpPageEvent, useCdp } from "hclcdp-web-sdk-react"
+import { title } from "node:process"
+import { add } from "date-fns"
+import { start } from "node:repl"
 
 type PaymentMethod = "paypal" | "sepa" | "saved-card" | "new-card" | "bonvoyo"
 
 export default function PaymentPage() {
   const router = useRouter()
+  const { track } = useCdp()
   const [selectedMethod, setSelectedMethod] = useState<PaymentMethod>("saved-card")
   const t = useTranslations("checkout.payment")
   const tCard = useTranslations("bahncard.comparison.card")
   const tNav = useTranslations("navigation")
+
+  const orderNumber = useMemo(() => `DB-${new Date().getFullYear()}-${Math.floor(Math.random() * 10000000)}`, [])
 
   // Read checkout data from localStorage
   const [checkoutData, setCheckoutData] = useState<CheckoutData | null>(null)
@@ -43,14 +49,32 @@ export default function PaymentPage() {
   // Save payment method and continue
   const handleContinue = () => {
     if (!checkoutData) return
-    const updatedData = { ...checkoutData, paymentMethod: selectedMethod }
+    const updatedData = { ...checkoutData, paymentMethod: selectedMethod, orderNumber }
     localStorage.setItem("bahncard-customer-data", JSON.stringify(updatedData))
     setCheckoutData(updatedData)
+
+    track({
+      identifier: "complete_purchase",
+      properties: {
+        paymentMethod: selectedMethod,
+        orderNumber,
+        title: t(checkoutData.title),
+        firstName: checkoutData.firstName,
+        lastName: checkoutData.lastName,
+        address: checkoutData.address,
+        dateofbirth: checkoutData.dateOfBirth,
+        startDate: checkoutData.startDate,
+        travelClass: checkoutData.travelClass,
+        card: tCard(checkoutData.card),
+      },
+    })
+
     router.push("/checkout/confirmation")
   }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12">
+      <CdpPageEvent pageName="Checkout - Payment" />
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <ProgressBar currentStep={2} />

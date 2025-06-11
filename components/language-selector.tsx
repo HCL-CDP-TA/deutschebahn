@@ -5,12 +5,14 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Languages } from "lucide-react"
+import { useCdp } from "hclcdp-web-sdk-react"
 
 export function LanguageSelector() {
   const locale = useLocale()
   const router = useRouter()
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const { track } = useCdp()
 
   const switchLocale = (newLocale: string) => {
     const segments = pathname.split("/")
@@ -18,6 +20,12 @@ export function LanguageSelector() {
     const newPath = segments.join("/") || "/"
     const query = searchParams.toString()
     router.replace(query ? `${newPath}?${query}` : newPath)
+    track({
+      identifier: "switch_language",
+      properties: {
+        locale: newLocale,
+      },
+    })
   }
 
   return (

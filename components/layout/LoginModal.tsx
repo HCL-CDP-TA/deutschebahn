@@ -3,6 +3,7 @@ import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
+import { useCdp } from "hclcdp-web-sdk-react"
 
 type LoginModalProps = {
   open: boolean
@@ -12,8 +13,16 @@ type LoginModalProps = {
 export default function LoginModal({ open, onClose }: LoginModalProps) {
   const t = useTranslations("navigation")
   const [email, setEmail] = useState("")
+  const { identify } = useCdp()
 
   if (!open) return null
+
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault()
+    localStorage.setItem("bahncard-username", email)
+    identify({ identifier: email, properties: { userId: email } })
+    onClose()
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
@@ -28,14 +37,7 @@ export default function LoginModal({ open, onClose }: LoginModalProps) {
           <Image src="/db-logo.svg" alt="Deutsche Bahn Logo" width={57} height={40} />
         </div>
         <h2 className="text-2xl font-bold mb-6 text-center">{t("loginTitle", { default: "Login" })}</h2>
-        <form
-          onSubmit={e => {
-            e.preventDefault()
-            // Save username to localStorage
-            localStorage.setItem("bahncard-username", email)
-            onClose()
-          }}
-          className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="block text-sm font-medium mb-1" htmlFor="email">
               {t("email", { default: "Email" })}

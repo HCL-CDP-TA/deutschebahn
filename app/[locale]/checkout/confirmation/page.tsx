@@ -8,6 +8,7 @@ import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
 import { useEffect, useMemo, useState } from "react"
 import { useTranslations } from "next-intl"
 import type { CheckoutData } from "@/app/types/checkout"
+import { CdpPageEvent } from "hclcdp-web-sdk-react"
 
 export default function ConfirmationPage() {
   const router = useRouter()
@@ -32,8 +33,6 @@ export default function ConfirmationPage() {
     }
   }, [])
 
-  const orderNumber = useMemo(() => `DB-${new Date().getFullYear()}-${Math.floor(Math.random() * 10000000)}`, [])
-
   // Helper to show payment method label
   const paymentLabel = (method: string | undefined) => {
     switch (method) {
@@ -54,6 +53,7 @@ export default function ConfirmationPage() {
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12">
+      <CdpPageEvent pageName={"Checkout - Configuration"} />
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <ProgressBar currentStep={3} disableNavigation />
@@ -76,7 +76,7 @@ export default function ConfirmationPage() {
                 <div className="space-y-3">
                   <div className="flex justify-between">
                     <span className="text-slate-600 dark:text-slate-400">{t("orderNumber")}</span>
-                    <span className="font-medium">{orderNumber}</span>
+                    <span className="font-medium">{customerData ? customerData.orderNumber : "-"}</span>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-600 dark:text-slate-400">{t("product")}</span>

@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl"
 import { Button } from "../ui/button"
 import cards from "@/app/data/cards"
 import Link from "next/link"
+import { useCdp } from "hclcdp-web-sdk-react"
 
 type BahnCardFeature = {
   feature: string
@@ -146,6 +147,7 @@ const CardOption = ({
   hasUnlimitedTravel,
   tCard,
 }: CardOptionProps) => {
+  const { track } = useCdp()
   const recommended = false
   return (
     <div
@@ -210,7 +212,14 @@ const CardOption = ({
           </li>
         </ul>
         <div className="mt-6">
-          <Link href={`/checkout/configuration?travelClass=${travelClass}&card=${title}`}>
+          <Link
+            onClick={() =>
+              track({
+                identifier: "select_card",
+                properties: { card: tCard(title), class: travelClass, price },
+              })
+            }
+            href={`/checkout/configuration?travelClass=${travelClass}&card=${title}`}>
             <Button className="w-full">{tCard("select", { card: tCard(title) })}</Button>
           </Link>
         </div>

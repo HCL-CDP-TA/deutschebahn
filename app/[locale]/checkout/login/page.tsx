@@ -6,10 +6,12 @@ import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 import { useRouter, useSearchParams } from "next/navigation"
 import Image from "next/image"
+import { CdpPageEvent, useCdp } from "hclcdp-web-sdk-react"
 
 export default function CustomerDataPage() {
   const t = useTranslations("navigation")
   const router = useRouter()
+  const { identify, logout } = useCdp()
   const searchParams = useSearchParams()
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -28,6 +30,7 @@ export default function CustomerDataPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
+    identify({ identifier: email, properties: { userId: email } })
     localStorage.setItem("bahncard-username", email)
     window.dispatchEvent(new Event("bahncard-login"))
     setUsername(email)
@@ -36,10 +39,12 @@ export default function CustomerDataPage() {
   const handleLogout = () => {
     localStorage.removeItem("bahncard-username")
     setUsername(null)
+    logout()
   }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12">
+      <CdpPageEvent pageName={"Checkout - Login"} />
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Progress Bar - step 1 is the second step (0-based index) */}

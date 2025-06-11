@@ -13,6 +13,7 @@ import { de, enAU, Locale } from "date-fns/locale"
 import { useJsApiLoader, Autocomplete } from "@react-google-maps/api"
 import cards from "@/app/data/cards"
 import type { CheckoutData } from "@/app/types/checkout"
+import { CdpPageEvent, useCdp } from "hclcdp-web-sdk-react"
 
 const localeMap: Record<string, Locale> = {
   en: enAU,
@@ -21,6 +22,7 @@ const localeMap: Record<string, Locale> = {
 
 export default function CustomerDetailsPage() {
   const router = useRouter()
+  const { track } = useCdp()
   const t = useTranslations("checkout.customerData")
   const tNav = useTranslations("navigation")
   const [dateOfBirth, setDateOfBirth] = useState<Date>()
@@ -133,6 +135,12 @@ export default function CustomerDetailsPage() {
     }
     localStorage.setItem("bahncard-customer-data", JSON.stringify(newCheckoutData))
     setCheckoutData(newCheckoutData)
+
+    track({
+      identifier: "customer_data",
+      properties: { title: t(title), firstName, lastName, address, dateOfBirth: dateOfBirth.toISOString() },
+    })
+
     router.push("/checkout/payment")
   }
 
@@ -170,6 +178,7 @@ export default function CustomerDetailsPage() {
   // Add this options object
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12">
+      <CdpPageEvent pageName={"Checkout - Customer Data"} />
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <ProgressBar currentStep={1} />

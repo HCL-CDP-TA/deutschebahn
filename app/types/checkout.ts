@@ -8,4 +8,5 @@ export interface CheckoutData {
   lastName: string
   address: string
   dateOfBirth: string
+  orderNumber: string
 }

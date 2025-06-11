@@ -13,6 +13,7 @@ import { useTranslations, useLocale } from "next-intl"
 import cards from "@/app/data/cards"
 import { de, enAU, Locale } from "date-fns/locale"
 import type { CheckoutData } from "@/app/types/checkout"
+import { CdpPageEvent, useCdp } from "hclcdp-web-sdk-react"
 
 const localeMap: Record<string, Locale> = {
   en: enAU,
@@ -20,6 +21,7 @@ const localeMap: Record<string, Locale> = {
 }
 
 const ConfigurationPage = () => {
+  const { track } = useCdp()
   const router = useRouter()
   const searchParams = useSearchParams()
   const t = useTranslations("checkout.configuration")
@@ -105,11 +107,23 @@ const ConfigurationPage = () => {
       dateOfBirth: prevData.dateOfBirth ?? "",
     }
     localStorage.setItem("bahncard-customer-data", JSON.stringify(data))
+
+    track({
+      identifier: "configure_card",
+      properties: {
+        card: tCard(cardTitle),
+        class: selectedClass,
+        price: prices[travelClass],
+        startDate: startDate.toISOString(),
+      },
+    })
+
     router.push("/checkout/login")
   }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12">
+      <CdpPageEvent pageName={"Checkout - Configuration"} />
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           {/* Progress Bar */}
@@ -121,7 +135,7 @@ const ConfigurationPage = () => {
               <CreditCard className="h-8 w-8 text-red-600 dark:text-red-500" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold mb-2">{tCard(cardTitle)}</h1>
+              <h1 className="text-3xl font-bold mb-2">{cardTitle}</h1>
               <p className="text-slate-600 dark:text-slate-400">{tCard(cardTitle.replace("Title", "Subtitle"))}</p>
             </div>
           </div>
