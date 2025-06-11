@@ -20,10 +20,6 @@ A modern, multilingual demo web application for Deutsche Bahn's BahnCard, built 
 - [next-intl](https://github.com/amannn/next-intl) for translations
 - [@react-google-maps/api](https://github.com/JustFly1984/react-google-maps-api) for address autocomplete\
 
-## Deployment
-
-Commits are automatically deployed to [Vercel](https://vercel.com/) and visible at [https://bc.hclcdp.com](https://bc.hclcdp.com).
-
 ## Getting Started
 
 1. **Install dependencies:**
@@ -34,7 +30,7 @@ Commits are automatically deployed to [Vercel](https://vercel.com/) and visible 
 
 2. **Set up environment variables:**
 
-   - Copy `.env.example` to `.env.local` and add your Google Maps API key.
+   - Copy `.env.example` to `.env.local` and add your Google Maps API key and CDP write key.
 
 3. **Run the development server:**
 
@@ -43,6 +39,19 @@ Commits are automatically deployed to [Vercel](https://vercel.com/) and visible 
    ```
 
 4. **Open [http://localhost:3000](http://localhost:3000) in your browser.**
+
+## Deployment
+
+Commits are automatically deployed to [Vercel](https://vercel.com/) and visible at [https://bc.hclcdp.com](https://bc.hclcdp.com).
+
+## Docker Deployment
+
+Create a `.env` as above
+
+```bash
+npm run docker-build
+npm run docker-run
+```
 
 ## Project Structure
 

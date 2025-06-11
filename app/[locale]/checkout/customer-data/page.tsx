@@ -138,7 +138,13 @@ export default function CustomerDetailsPage() {
 
     track({
       identifier: "customer_data",
-      properties: { title: t(title), firstName, lastName, address, dateOfBirth: dateOfBirth.toISOString() },
+      properties: {
+        title: t(title),
+        firstName,
+        lastName,
+        address,
+        dateOfBirth: dateOfBirth ? dateOfBirth.toISOString() : "",
+      },
     })
 
     router.push("/checkout/payment")
