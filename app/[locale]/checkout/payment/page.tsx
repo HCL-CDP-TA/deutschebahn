@@ -26,7 +26,6 @@ export default function PaymentPage() {
 
   const orderNumber = useMemo(() => `DB-${new Date().getFullYear()}-${Math.floor(Math.random() * 10000000)}`, [])
 
-  // Read checkout data from localStorage
   const [checkoutData, setCheckoutData] = useState<CheckoutData | null>(null)
   const [price, setPrice] = useState<number | undefined>(undefined)
 
@@ -52,15 +51,15 @@ export default function PaymentPage() {
     setCheckoutData(updatedData)
 
     track({
-      identifier: "complete_purchase",
+      identifier: "BahnCard_Purchase",
       properties: {
         paymentMethod: selectedMethod,
         orderNumber,
-        title: tCustomer(checkoutData.title),
-        firstName: checkoutData.firstName,
-        lastName: checkoutData.lastName,
-        address: checkoutData.address,
-        dateofbirth: checkoutData.dateOfBirth,
+        "customer.title": tCustomer(checkoutData.title),
+        "customer.firstName": checkoutData.firstName,
+        "customer.lastName": checkoutData.lastName,
+        formattedAddress: checkoutData.formattedAddress,
+        "customer.dateOfBirth": checkoutData.dateOfBirth,
         startDate: checkoutData.startDate,
         travelClass: checkoutData.travelClass,
         card: tCard(checkoutData.card),

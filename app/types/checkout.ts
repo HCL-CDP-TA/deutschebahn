@@ -6,7 +6,8 @@ export interface CheckoutData {
   title: string
   firstName: string
   lastName: string
-  address: string
+  formattedAddress: string
   dateOfBirth: string
   orderNumber?: string
+  addressComponents?: google.maps.GeocoderAddressComponent[]
 }

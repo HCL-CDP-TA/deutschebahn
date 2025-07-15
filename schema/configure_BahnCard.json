@@ -1,0 +1,44 @@
+{
+  "writeKey": "szykomr4swawdcs7x8yk",
+  "payloadType": "v3",
+  "context": {
+    "server_ts": "1752554688220",
+    "library": {
+      "name": "hclcdp-web-sdk",
+      "type": "javascript",
+      "version": "0.0.4"
+    },
+    "account_id": "VIZVRM6553",
+    "srcid": 1457,
+    "ip": "182.239.227.243",
+    "userAgent": {
+      "deviceType": "Desktop",
+      "osVersion": "10.15.7",
+      "browser": "Chrome",
+      "osType": "macOS",
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+    },
+    "page": {
+      "path": "/en/checkout/configuration",
+      "referrer": "",
+      "search": "?travelClass=2nd&card=bc25Title",
+      "title": "BahnCard: save with every journey",
+      "url": "http://localhost:3001/en/checkout/configuration?travelClass=2nd&card=bc25Title"
+    },
+    "utm": {}
+  },
+  "messageId": "0f25c302-89f9-4574-a0f7-8236819a350e",
+  "otherIds": {},
+  "id": "3cbb54f2-2e4d-4384-bb19-11dda57d76de",
+  "sessionId": "",
+  "type": "track",
+  "event": "configure_BahnCard",
+  "receivedAt": "1752554688220",
+  "originalTimestamp": "1752554687269",
+  "properties": {
+    "price": "62.9",
+    "class": "2nd",
+    "card": "BahnCard 25",
+    "startDate": "2025-07-14T14:00:00.000Z"
+  }
+}

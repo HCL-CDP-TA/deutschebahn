@@ -1,0 +1,41 @@
+{
+  "writeKey": "szykomr4swawdcs7x8yk",
+  "customerProperties": {
+    "userId": "simon"
+  },
+  "payloadType": "v3",
+  "context": {
+    "server_ts": "1752554835997",
+    "library": {
+      "name": "hclcdp-web-sdk",
+      "type": "javascript",
+      "version": "0.0.4"
+    },
+    "account_id": "VIZVRM6553",
+    "srcid": 1457,
+    "ip": "182.239.227.243",
+    "userAgent": {
+      "deviceType": "Desktop",
+      "osVersion": "10.15.7",
+      "browser": "Chrome",
+      "osType": "macOS",
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+    },
+    "page": {
+      "path": "/en/checkout/payment",
+      "referrer": "",
+      "search": "",
+      "title": "BahnCard: save with every journey",
+      "url": "http://localhost:3001/en/checkout/payment"
+    },
+    "utm": {}
+  },
+  "messageId": "b1efb237-9ed2-4b57-818c-e08cc88e125b",
+  "otherIds": {},
+  "id": "3cbb54f2-2e4d-4384-bb19-11dda57d76de",
+  "sessionId": "",
+  "type": "identify",
+  "receivedAt": "1752554835997",
+  "userId": "simon",
+  "originalTimestamp": "1752554835295"
+}

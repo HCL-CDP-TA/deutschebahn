@@ -1,0 +1,50 @@
+{
+  "writeKey": "szykomr4swawdcs7x8yk",
+  "payloadType": "v3",
+  "context": {
+    "server_ts": "1752554764279",
+    "library": {
+      "name": "hclcdp-web-sdk",
+      "type": "javascript",
+      "version": "0.0.4"
+    },
+    "account_id": "VIZVRM6553",
+    "srcid": 1457,
+    "ip": "182.239.227.243",
+    "userAgent": {
+      "deviceType": "Desktop",
+      "osVersion": "10.15.7",
+      "browser": "Chrome",
+      "osType": "macOS",
+      "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+    },
+    "page": {
+      "path": "/en/checkout/customer-data",
+      "referrer": "",
+      "search": "",
+      "title": "BahnCard: save with every journey",
+      "url": "http://localhost:3001/en/checkout/customer-data"
+    },
+    "utm": {}
+  },
+  "messageId": "28b81059-ab0d-4cd9-9ca0-b5cf3c068c78",
+  "otherIds": {},
+  "id": "3cbb54f2-2e4d-4384-bb19-11dda57d76de",
+  "sessionId": "",
+  "type": "track",
+  "event": "customer_data",
+  "receivedAt": "1752554764279",
+  "originalTimestamp": "1752554763559",
+  "properties": {
+    "customer.primaryAddress.city": "",
+    "formattedAddress": "Osterholzer Heerstraße, 28 Bremen-Osterholz",
+    "customer.firstName": "Simon",
+    "customer.title": "Mr",
+    "customer.lastName": "Pallister",
+    "customer.primaryAddress.country": "",
+    "customer.primaryAddress.state": "",
+    "customer.primaryAddress.street": "",
+    "customer.dateOfBirth": "1999-07-13T00:00:00.000Z",
+    "customer.primaryAddress.postalCode": ""
+  }
+}

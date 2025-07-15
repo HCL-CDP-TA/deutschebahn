@@ -215,7 +215,7 @@ const CardOption = ({
           <Link
             onClick={() =>
               track({
-                identifier: "select_card",
+                identifier: "select_BahnCard",
                 properties: { card: tCard(title), class: travelClass, price },
               })
             }

@@ -109,13 +109,14 @@ const ConfigurationPage = () => {
       title: prevData.title ?? "",
       firstName: prevData.firstName ?? "",
       lastName: prevData.lastName ?? "",
-      address: prevData.address ?? "",
+      formattedAddress: prevData.formattedAddress ?? "",
+      addressComponents: prevData.addressComponents ?? [],
       dateOfBirth: prevData.dateOfBirth ?? "",
     }
     localStorage.setItem("bahncard-customer-data", JSON.stringify(data))
 
     track({
-      identifier: "configure_card",
+      identifier: "configure_BahnCard",
       properties: {
         card: tCard(cardTitle),
         class: selectedClass,

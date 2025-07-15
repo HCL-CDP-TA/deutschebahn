@@ -14,6 +14,7 @@ import { useJsApiLoader, Autocomplete } from "@react-google-maps/api"
 import cards from "@/app/data/cards"
 import type { CheckoutData } from "@/app/types/checkout"
 import { CdpPageEvent, useCdp } from "hclcdp-web-sdk-react"
+import { format, parse } from "node:path"
 
 const localeMap: Record<string, Locale> = {
   en: enAU,
@@ -26,8 +27,8 @@ export default function CustomerDetailsPage() {
   const t = useTranslations("checkout.customerData")
   const tNav = useTranslations("navigation")
   const [dateOfBirth, setDateOfBirth] = useState<Date>()
-  const [address, setAddress] = useState<string>("")
-  // State for the selected title value (e.g. "mr", "mrs", etc.)
+  const [formattedAddress, setFormattedAddress] = useState<string>("")
+  const [address, setAddress] = useState<google.maps.places.PlaceResult | null>(null)
   const [title, setTitle] = useState<string>("")
   const [firstName, setFirstName] = useState<string>("")
   const [lastName, setLastName] = useState<string>("")
@@ -41,7 +42,6 @@ export default function CustomerDetailsPage() {
   const [addressSelected, setAddressSelected] = useState(false)
   const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
   const appLocale = useLocale()
-  const dateFnsLocale = localeMap[appLocale] || enAU
 
   // Prefill all fields from localStorage if available
   useEffect(() => {
@@ -58,21 +58,67 @@ export default function CustomerDetailsPage() {
           if (data.title) setTitle(data.title)
           if (data.firstName) setFirstName(data.firstName)
           if (data.lastName) setLastName(data.lastName)
-          if (data.address) {
-            setAddress(data.address)
+          if (data.formattedAddress) {
+            setFormattedAddress(data.formattedAddress)
             setAddressSelected(true)
           }
           if (data.dateOfBirth) setDateOfBirth(new Date(data.dateOfBirth))
-        } catch {}
+          if (data.addressComponents) {
+            const parsedAddress = parseAddress(data.addressComponents, data.formattedAddress)
+            setAddress({
+              formatted_address: data.formattedAddress,
+              address_components: data.addressComponents,
+            }) // Ensure address state is updated
+          }
+        } catch (error) {
+          console.error("Error parsing stored data:", error) // Log any parsing errors
+        }
       }
       setUsername(localStorage.getItem("bahncard-username"))
     }
   }, [])
 
+  function parseAddress(addressComponents: google.maps.GeocoderAddressComponent[], formattedAddress: string) {
+    const address = {
+      street: "",
+      city: "",
+      postalCode: "",
+      country: "",
+      state: "", // Add state field
+    }
+
+    let houseNumber = ""
+    let streetName = ""
+
+    addressComponents.forEach(component => {
+      const types = component.types
+
+      if (types.includes("street_number")) {
+        houseNumber = component.long_name
+      } else if (types.includes("route")) {
+        streetName = component.long_name
+      } else if (types.includes("locality")) {
+        address.city = component.long_name
+      } else if (types.includes("postal_code")) {
+        address.postalCode = component.long_name
+      } else if (types.includes("country")) {
+        address.country = component.long_name
+      } else if (types.includes("administrative_area_level_1")) {
+        address.state = component.long_name
+      }
+    })
+
+    // Always combine house number and street name in the correct order
+    address.street = `${streetName} ${houseNumber}`.trim()
+
+    return address
+  }
   // Load Google Maps JS API
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
     libraries: ["places"],
+    language: "DE",
+    region: "DE",
   })
 
   const onLoad = (autocomplete: google.maps.places.Autocomplete) => {
@@ -83,14 +129,16 @@ export default function CustomerDetailsPage() {
         new window.google.maps.LatLng(55.0581, 15.0419),
       ),
       strictBounds: false,
+      types: ["address"], // Restrict results to addresses only
     })
   }
 
   const onPlaceChanged = () => {
     if (autocompleteRef.current !== null) {
       const place = autocompleteRef.current.getPlace()
+      setAddress(place)
       if (place && (place.formatted_address || place.name)) {
-        setAddress(place.formatted_address || place.name || "")
+        setFormattedAddress(place.formatted_address || place.name || "")
         setAddressSelected(true)
       }
     }
@@ -98,8 +146,8 @@ export default function CustomerDetailsPage() {
 
   // Reset addressSelected if user types in the field
   const handleAddressChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAddress(e.target.value)
-    setAddressSelected(false)
+    setFormattedAddress(e.target.value)
+    setAddressSelected(false) // Allow user input to override pre-filled data
   }
 
   // When saving, merge with existing product data
@@ -109,7 +157,7 @@ export default function CustomerDetailsPage() {
     if (!title) newErrors.title = true
     if (!firstName) newErrors.firstName = true
     if (!lastName) newErrors.lastName = true
-    if (!address) newErrors.address = true
+    if (!formattedAddress) newErrors.address = true
     if (!dateOfBirth) newErrors.dateOfBirth = true
     if (!addressSelected) newErrors.address = true
 
@@ -130,20 +178,28 @@ export default function CustomerDetailsPage() {
       title,
       firstName,
       lastName,
-      address,
+      formattedAddress,
       dateOfBirth: dateOfBirth ? dateOfBirth.toISOString() : "",
+      addressComponents: address?.address_components || [], // Save address components
     }
     localStorage.setItem("bahncard-customer-data", JSON.stringify(newCheckoutData))
     setCheckoutData(newCheckoutData)
 
+    const parsedAddress = parseAddress(address?.address_components || [], formattedAddress)
+
     track({
       identifier: "customer_data",
       properties: {
-        title: t(title),
-        firstName,
-        lastName,
-        address,
-        dateOfBirth: dateOfBirth ? dateOfBirth.toISOString() : "",
+        "customer.title": t(title),
+        "customer.firstName": firstName,
+        "customer.lastName": lastName,
+        formattedAddress,
+        "customer.primaryAddress.street": parsedAddress.street,
+        "customer.primaryAddress.city": parsedAddress.city,
+        "customer.primaryAddress.postalCode": parsedAddress.postalCode,
+        "customer.primaryAddress.country": parsedAddress.country,
+        "customer.primaryAddress.state": parsedAddress.state,
+        "customer.dateOfBirth": dateOfBirth ? dateOfBirth.toISOString() : "",
       },
     })
 
@@ -152,7 +208,6 @@ export default function CustomerDetailsPage() {
 
   // Add this handleBack function:
   const handleBack = () => {
-    // Get latest card and travelClass from localStorage (or state if you prefer)
     let card = cardParam
     let travelClass = travelClassParam
     if (typeof window !== "undefined") {
@@ -251,13 +306,13 @@ export default function CustomerDetailsPage() {
                       type="text"
                       placeholder={t("addressPlaceholder")}
                       className={`w-full ${errors.address ? "border-red-500" : ""}`}
-                      value={address}
-                      onChange={handleAddressChange}
+                      value={formattedAddress} // Tie value to formattedAddress state
+                      onChange={handleAddressChange} // Update formattedAddress on user input
                     />
                   </Autocomplete>
                 ) : (
                   <Input
-                    value={address}
+                    value={address?.formatted_address || ""}
                     onChange={handleAddressChange}
                     placeholder={t("addressPlaceholder")}
                     className={`w-full ${errors.address ? "border-red-500" : ""}`}
