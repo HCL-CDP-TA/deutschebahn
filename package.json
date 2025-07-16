@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "docker-rebuild": "docker stop db-bahncard || true && docker rm db-bahncard || true && docker rmi db-bahncard:latest || true && docker image prune -f && docker build -t db-bahncard . && docker run --name db-bahncard -d -p 8080:3000 db-bahncard"
+    "docker:rebuild": "docker-compose down && docker-compose up --build -d"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

@@ -1,6 +1,5 @@
 {
   "writeKey": "szykomr4swawdcs7x8yk",
-  "payloadType": "v3",
   "context": {
     "server_ts": "1752554795621",
     "library": {
@@ -8,8 +7,6 @@
       "type": "javascript",
       "version": "0.0.4"
     },
-    "account_id": "VIZVRM6553",
-    "srcid": 1457,
     "ip": "182.239.227.243",
     "userAgent": {
       "deviceType": "Desktop",
@@ -30,10 +27,8 @@
   "messageId": "8f0f6c79-2a05-4a3a-b1af-f2c3619c28a1",
   "otherIds": {},
   "id": "3cbb54f2-2e4d-4384-bb19-11dda57d76de",
-  "sessionId": "",
   "type": "track",
   "event": "BahnCard_Purchase",
-  "receivedAt": "1752554795621",
   "originalTimestamp": "1752554794925",
   "properties": {
     "orderNumber": "DB-2025-5166676",

@@ -1,0 +1,14 @@
+services:
+  app:
+    build:
+      context: .
+    image: db-bahncard
+    container_name: db-bahncard
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_CDP_ENDPOINT=https://pl.dev.hxcd.now.hclsoftware.cloud
+      - NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyD7ragpeL7LMjC62Ug4fTZPeQJtF2pAaqc
+      - NEXT_PUBLIC_HCLCDP_WRITE_KEY=szykomr4swawdcs7x8yk
+
+    command: ["node", "server.js"]
