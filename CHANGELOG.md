@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.1...v1.0.2) (2025-08-19)
+
+
+### Bug Fixes
+
+* Vercel deploy fix ([3869f5a](https://github.com/HCL-CDP-TA/deutschebahn/commit/3869f5ad9196f4237e08632b6d9678d6cd2d0a1b))
+
 ## [1.0.1](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.0...v1.0.1) (2025-08-19)
 
 
