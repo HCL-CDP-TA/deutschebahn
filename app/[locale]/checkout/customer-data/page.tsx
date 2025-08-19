@@ -190,7 +190,7 @@ export default function CustomerDetailsPage() {
     track({
       identifier: "customer_data",
       properties: {
-        "customer.title": t(title),
+        "customer.salutation": t(title),
         "customer.firstName": firstName,
         "customer.lastName": lastName,
         formattedAddress,
@@ -199,7 +199,7 @@ export default function CustomerDetailsPage() {
         "customer.primaryAddress.postalCode": parsedAddress.postalCode,
         "customer.primaryAddress.country": parsedAddress.country,
         "customer.primaryAddress.state": parsedAddress.state,
-        "customer.dateOfBirth": dateOfBirth ? dateOfBirth.getTime() : "",
+        "customer.dateOfBirth": dateOfBirth ? dateOfBirth.toISOString().split("T")[0] : "",
       },
     })
 
