@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.4...v1.1.0) (2025-08-19)
+
+
+### Features
+
+* added robots.txt & version to console ([a94a65b](https://github.com/HCL-CDP-TA/deutschebahn/commit/a94a65bc5fdbea1255940a5858ed30027af20da8))
+* changed username to email ([c596b31](https://github.com/HCL-CDP-TA/deutschebahn/commit/c596b317d4f687dd120abbdd103c7d4b46b485fe))
+
 ## [1.0.4](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.3...v1.0.4) (2025-08-19)
 
 
