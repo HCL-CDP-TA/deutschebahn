@@ -109,6 +109,7 @@ const ConfigurationPage = () => {
       title: prevData.title ?? "",
       firstName: prevData.firstName ?? "",
       lastName: prevData.lastName ?? "",
+      mobilePhone: prevData.mobilePhone ?? "",
       formattedAddress: prevData.formattedAddress ?? "",
       addressComponents: prevData.addressComponents ?? [],
       dateOfBirth: prevData.dateOfBirth ?? "",
