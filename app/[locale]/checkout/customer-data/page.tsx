@@ -199,7 +199,7 @@ export default function CustomerDetailsPage() {
         "customer.primaryAddress.postalCode": parsedAddress.postalCode,
         "customer.primaryAddress.country": parsedAddress.country,
         "customer.primaryAddress.state": parsedAddress.state,
-        "customer.dateOfBirth": dateOfBirth ? dateOfBirth.toISOString() : "",
+        "customer.dateOfBirth": dateOfBirth ? dateOfBirth.getTime() : "",
       },
     })
 
