@@ -1,7 +1,7 @@
 import HeroSection from "@/components/sections/hero-section"
 import BahnCardComparison from "@/components/sections/bahncard-comparison"
 import FAQSection from "@/components/sections/faq-section"
-import { CdpPageEvent } from "hclcdp-web-sdk-react"
+import { CdpPageEvent } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
 
 export default function BahnCardPage() {
   return (

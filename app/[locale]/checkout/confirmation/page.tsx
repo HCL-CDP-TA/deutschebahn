@@ -8,7 +8,7 @@ import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
 import { useEffect, useMemo, useState } from "react"
 import { useTranslations } from "next-intl"
 import type { CheckoutData } from "@/app/types/checkout"
-import { CdpPageEvent } from "hclcdp-web-sdk-react"
+import { CdpPageEvent } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
 
 export default function ConfirmationPage() {
   const router = useRouter()

@@ -3,7 +3,7 @@ import { X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-import { useCdp } from "hclcdp-web-sdk-react"
+import { useCdp } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
 
 type LoginModalProps = {
   open: boolean

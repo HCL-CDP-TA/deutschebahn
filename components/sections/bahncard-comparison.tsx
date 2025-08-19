@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl"
 import { Button } from "../ui/button"
 import cards from "@/app/data/cards"
 import Link from "next/link"
-import { useCdp } from "hclcdp-web-sdk-react"
+import { useCdp } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
 
 type BahnCardFeature = {
   feature: string

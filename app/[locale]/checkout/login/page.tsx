@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { useTranslations } from "next-intl"
 import { useRouter, useSearchParams } from "next/navigation"
 import Image from "next/image"
-import { CdpPageEvent, useCdp } from "hclcdp-web-sdk-react"
+import { CdpPageEvent, useCdp } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
 
 export default function CustomerDataPage() {
   const t = useTranslations("navigation")

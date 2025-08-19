@@ -11,7 +11,7 @@ import Image from "next/image"
 import ProgressBar from "@/app/[locale]/checkout/ProgressBar"
 import { useTranslations } from "next-intl"
 import type { CheckoutData } from "@/app/types/checkout"
-import { CdpPageEvent, useCdp } from "hclcdp-web-sdk-react"
+import { CdpPageEvent, useCdp } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
 
 type PaymentMethod = "paypal" | "sepa" | "saved-card" | "new-card" | "bonvoyo"
 

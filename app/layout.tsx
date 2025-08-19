@@ -2,7 +2,7 @@ import "./globals.css"
 import type { Metadata } from "next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { getTranslations } from "next-intl/server"
-import { CdpClientWrapper, HclCdpConfig } from "hclcdp-web-sdk-react"
+import { CdpClientWrapper, HclCdpConfig } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("metadata")

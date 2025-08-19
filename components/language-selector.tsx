@@ -5,7 +5,7 @@ import { useRouter, usePathname, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { Languages } from "lucide-react"
-import { useCdp } from "hclcdp-web-sdk-react"
+import { useCdp } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
 
 export function LanguageSelector() {
   const locale = useLocale()

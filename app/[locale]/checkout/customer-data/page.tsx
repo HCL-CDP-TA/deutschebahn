@@ -13,7 +13,7 @@ import { de, enAU, Locale } from "date-fns/locale"
 import { useJsApiLoader, Autocomplete } from "@react-google-maps/api"
 import cards from "@/app/data/cards"
 import type { CheckoutData } from "@/app/types/checkout"
-import { CdpPageEvent, useCdp } from "hclcdp-web-sdk-react"
+import { CdpPageEvent, useCdp } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
 import { format, parse } from "node:path"
 
 const localeMap: Record<string, Locale> = {
