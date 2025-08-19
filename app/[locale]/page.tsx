@@ -14,19 +14,13 @@ export default function HomePage() {
     <div className="flex flex-col min-h-screen">
       <CdpPageEvent pageName="Home Page" />
       {/* Hero Section */}
-      <section className="relative">
-        <div className="absolute inset-0 z-0">
-          <div className="relative w-full h-full">
-            <Image
-              src="/home-hero.avif"
-              alt={t("heroImageAlt")}
-              fill
-              priority
-              className="object-cover brightness-[0.85]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-transparent" />
-          </div>
-        </div>
+      <section
+        className="relative h-[600px] md:h-[700px] bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/home-hero.avif')",
+          filter: "brightness(0.85)",
+        }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/80 via-slate-900/50 to-transparent" />
 
         <div className="container mx-auto px-4 py-32 md:py-48 relative z-10">
           <div className="max-w-2xl">
@@ -79,15 +73,9 @@ export default function HomePage() {
                 <Button className="bg-red-600 hover:bg-red-700 text-white">{t("learnMoreBahncard")}</Button>
               </Link>
             </div>
-            <div className="relative h-[400px] rounded-xl overflow-hidden shadow-lg">
-              <Image
-                src="/home-subhero.avif"
-                alt={t("bahncardImageAlt")}
-                sizes="(max-w: 500px)"
-                fill
-                className="object-cover"
-              />
-            </div>
+            <div
+              className="h-[400px] rounded-xl overflow-hidden shadow-lg bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: "url('/home-subhero.avif')" }}></div>
           </div>
         </div>
       </section>
