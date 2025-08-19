@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.1](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.0...v1.0.1) (2025-08-19)
+
+
+### Bug Fixes
+
+* github build fixes ([13b250b](https://github.com/HCL-CDP-TA/deutschebahn/commit/13b250b8777afce9dd2ce47decb32005844bcfa5))
+* Node upgrade v22 ([cdafcc8](https://github.com/HCL-CDP-TA/deutschebahn/commit/cdafcc899bc52ae801ecb541097101d6dd4fb854))
+
 ## 1.0.0 (2025-08-19)
 
 
