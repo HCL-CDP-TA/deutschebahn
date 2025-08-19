@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.2...v1.0.3) (2025-08-19)
+
+
+### Bug Fixes
+
+* tailwind fixes ([71dd6f3](https://github.com/HCL-CDP-TA/deutschebahn/commit/71dd6f3df6a96a6ce0e5e2e292f2569ac39bc428))
+
 ## [1.0.2](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.1...v1.0.2) (2025-08-19)
 
 
