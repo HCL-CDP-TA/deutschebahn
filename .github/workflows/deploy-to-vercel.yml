@@ -17,9 +17,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "22"
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm ci
+          npm install @tailwindcss/postcss
+
+      - name: Debug installed packages
+        run: |
+          npm list @tailwindcss/postcss tailwindcss
+          cat postcss.config.js
 
       - name: Build project
         run: npm run build
