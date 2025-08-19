@@ -1,14 +1,19 @@
 "use client"
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Train, MapPin, Clock, CreditCard } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { CdpPageEvent } from "@hcl-cdp-ta/hclcdp-web-sdk-react"
+import { useEffect } from "react"
+import packageJson from "../../package.json"
 
 export default function HomePage() {
   const t = useTranslations("home")
+
+  useEffect(() => {
+    console.log(`Site version: ${packageJson.version}`)
+  }, [])
 
   return (
     <div className="flex flex-col min-h-screen">
