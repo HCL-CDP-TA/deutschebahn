@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.1.0...v1.2.0) (2025-08-19)
+
+
+### Features
+
+* Added mobile phone ([89f2340](https://github.com/HCL-CDP-TA/deutschebahn/commit/89f2340bc128bceb74564e81d5cc392be6b79f58))
+
+
+### Bug Fixes
+
+* build error ([13f9c21](https://github.com/HCL-CDP-TA/deutschebahn/commit/13f9c21e9c14630c53b67d1fcd56e1b73558f132))
+
 ## [1.1.0](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.4...v1.1.0) (2025-08-19)
 
 
