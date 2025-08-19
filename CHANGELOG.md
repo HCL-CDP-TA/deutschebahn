@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.3...v1.0.4) (2025-08-19)
+
+
+### Bug Fixes
+
+* date of birth format & salutation fix ([1e11644](https://github.com/HCL-CDP-TA/deutschebahn/commit/1e11644de047fb4f07cfdae1a640d68a3af16838))
+
 ## [1.0.3](https://github.com/HCL-CDP-TA/deutschebahn/compare/v1.0.2...v1.0.3) (2025-08-19)
 
 
