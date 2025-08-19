@@ -19,7 +19,7 @@ const config: HclCdpConfig = {
   writeKey: process.env.NEXT_PUBLIC_HCLCDP_WRITE_KEY || "",
   inactivityTimeout: 1,
   enableSessionLogging: false,
-  enableUserLogoutLogging: false,
+  enableUserLogoutLogging: true,
   cdpEndpoint: "https://pl.dev.hxcd.now.hclsoftware.cloud",
 }
 
