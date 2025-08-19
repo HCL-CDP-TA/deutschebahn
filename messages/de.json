@@ -73,6 +73,8 @@
       "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
       "lastName": "Nachname",
       "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
+      "mobilePhone": "Mobiltelefon",
+      "mobilePhonePlaceholder": "Geben Sie Ihre Mobiltelefonnummer ein",
       "address": "Adresse",
       "addressPlaceholder": "Beginnen Sie, Ihre Adresse einzugeben...",
       "dateOfBirth": "Geburtsdatum",

@@ -6,6 +6,7 @@ export interface CheckoutData {
   title: string
   firstName: string
   lastName: string
+  mobilePhone: string
   formattedAddress: string
   dateOfBirth: string
   orderNumber?: string

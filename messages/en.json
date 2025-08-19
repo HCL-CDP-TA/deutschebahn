@@ -74,6 +74,8 @@
       "firstNamePlaceholder": "Enter your first name",
       "lastName": "Last Name",
       "lastNamePlaceholder": "Enter your last name",
+      "mobilePhone": "Mobile Phone",
+      "mobilePhonePlaceholder": "Enter your mobile phone number",
       "address": "Address",
       "addressPlaceholder": "Start typing your address...",
       "dateOfBirth": "Date of Birth",

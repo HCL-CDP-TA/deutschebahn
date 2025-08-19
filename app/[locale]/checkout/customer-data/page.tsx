@@ -32,6 +32,7 @@ export default function CustomerDetailsPage() {
   const [title, setTitle] = useState<string>("")
   const [firstName, setFirstName] = useState<string>("")
   const [lastName, setLastName] = useState<string>("")
+  const [mobilePhone, setMobilePhone] = useState<string>("")
   const [errors, setErrors] = useState<{ [key: string]: boolean }>({})
   const [cardParam, setCardParam] = useState<string>("")
   const [travelClassParam, setTravelClassParam] = useState<"1st" | "2nd" | null>(null)
@@ -58,6 +59,7 @@ export default function CustomerDetailsPage() {
           if (data.title) setTitle(data.title)
           if (data.firstName) setFirstName(data.firstName)
           if (data.lastName) setLastName(data.lastName)
+          if (data.mobilePhone) setMobilePhone(data.mobilePhone)
           if (data.formattedAddress) {
             setFormattedAddress(data.formattedAddress)
             setAddressSelected(true)
@@ -157,6 +159,7 @@ export default function CustomerDetailsPage() {
     if (!title) newErrors.title = true
     if (!firstName) newErrors.firstName = true
     if (!lastName) newErrors.lastName = true
+    if (!mobilePhone) newErrors.mobilePhone = true
     if (!formattedAddress) newErrors.address = true
     if (!dateOfBirth) newErrors.dateOfBirth = true
     if (!addressSelected) newErrors.address = true
@@ -178,6 +181,7 @@ export default function CustomerDetailsPage() {
       title,
       firstName,
       lastName,
+      mobilePhone,
       formattedAddress,
       dateOfBirth: dateOfBirth ? dateOfBirth.toISOString() : "",
       addressComponents: address?.address_components || [], // Save address components
@@ -193,6 +197,7 @@ export default function CustomerDetailsPage() {
         "customer.salutation": t(title),
         "customer.firstName": firstName,
         "customer.lastName": lastName,
+        "customer.mobilePhone": mobilePhone,
         formattedAddress,
         "customer.primaryAddress.street": parsedAddress.street,
         "customer.primaryAddress.city": parsedAddress.city,
@@ -293,6 +298,19 @@ export default function CustomerDetailsPage() {
                   className={errors.lastName ? "border-red-500" : ""}
                 />
                 {errors.lastName && <span className="text-red-500 text-xs">{tNav("requiredField")}</span>}
+              </div>
+
+              <div>
+                <Label htmlFor="mobilePhone">{t("mobilePhone")}</Label>
+                <Input
+                  id="mobilePhone"
+                  type="tel"
+                  placeholder={t("mobilePhonePlaceholder")}
+                  value={mobilePhone}
+                  onChange={e => setMobilePhone(e.target.value)}
+                  className={errors.mobilePhone ? "border-red-500" : ""}
+                />
+                {errors.mobilePhone && <span className="text-red-500 text-xs">{tNav("requiredField")}</span>}
               </div>
             </div>
 
